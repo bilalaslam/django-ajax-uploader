@@ -49,7 +49,7 @@ class AjaxFileUploader(object):
             filename = (backend.update_filename(request, filename, *args, **kwargs)
                         or filename)
             # save the file
-            backend.setup(filename, *args, **kwargs)
+            backend.setup(filename, request, *args, **kwargs)
             success = backend.upload(upload, filename, is_raw, *args, **kwargs)
             # callback
             extra_context = backend.upload_complete(request, filename, *args, **kwargs)
